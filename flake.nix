@@ -10,12 +10,9 @@
     };
   };
  outputs = { self, nixpkgs, home-manager, ... }:
-  let
-    system = "x86_64-linux";
-  in
   {
     nixosConfigurations.snowline = nixpkgs.lib.nixosSystem {
-      inherit system;
+      system = "x86_64-linux";
       modules = [
         ./configuration.nix
 
