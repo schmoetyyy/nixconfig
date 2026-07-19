@@ -1,0 +1,56 @@
+@define-color bg #11111b;
+@define-color txt #eff1f5;
+@define-color sel #ca9ee6;
+@define-color bg-alt #1e1e2e;
+
+.notification {
+  background: @bg-alt;
+  color: @txt;
+  border-radius: 0px;
+  opacity: 1;
+  padding: 16px;
+  border: none;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.summary {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: @sel;
+}
+
+.body {
+  color: @txt;
+  font-size: 11px;
+}
+
+.notification-default-action:hover {
+  background: @bg-alt;
+}
+
+.close-button {
+  background: @sel;
+  color: @bg;
+  text-shadow: none;
+  padding: 0;
+}
+
+.notification-group {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.control-center {
+  opacity: 1;
+  background: @bg;
+  border-radius: 0px;
+  max-height: 900px;
+  min-height: 700px;
+  margin-top: 20px;
+  margin-right: 20px;
+  max-width: 650px;
+  min-width: 650px;
+  padding: 16px;
+}
