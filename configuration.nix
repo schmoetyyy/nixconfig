@@ -117,7 +117,7 @@ in
   };
   programs.steam.enable = true;
 
-  programs.waybar.enable = true;
+  #programs.waybar.enable = true;
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
@@ -155,6 +155,7 @@ in
      networkmanager-strongswan
      gimp
      vlc
+     waybar
      ];
 
   fonts.packages = with pkgs; [
