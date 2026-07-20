@@ -164,7 +164,13 @@ in
      nerd-fonts.iosevka
   ];
 
-  
+  { inputs, pkgs, ... }:
+{
+  environment.systemPackages = [
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
+}
+
   services.xserver.videoDrivers = [ "amdgpu" ];
 
     hardware.graphics = {
