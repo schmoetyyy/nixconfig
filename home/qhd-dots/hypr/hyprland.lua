@@ -52,7 +52,8 @@ local browser     = "firefox"
 --
 hl.on("hyprland.start", function () 
    hl.exec_cmd("nm-applet")
-   hl.exec_cmd("hyprpaper ; waybar")
+   hl.exec_cmd("hyprpaper")
+   hl.exec_cmd("waybar")
 --   hl.exec_cmd("pkill waybar ; sleep 1 ; waybar")
    hl.exec_cmd("hyprctl setcursor Qogir-Dark 22")
  end)
