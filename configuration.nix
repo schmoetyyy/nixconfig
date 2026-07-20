@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
   sddm-astronaut = pkgs.sddm-astronaut.override {
 	embeddedTheme = "japanese_aesthetic";
@@ -117,11 +117,12 @@ in
   };
   programs.steam.enable = true;
 
-  #programs.waybar.enable = true;
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
+nix.extraOptions = ''
+  !include ~/.security/nixos/github-token.conf
+'';
+
    environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     vim
      wget
      kitty
      fastfetch
@@ -156,6 +157,9 @@ in
      gimp
      vlc
      waybar
+     resources
+     ] ++ [
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];
 
   fonts.packages = with pkgs; [
@@ -163,13 +167,6 @@ in
      jetbrains-mono
      nerd-fonts.iosevka
   ];
-
-  { inputs, pkgs, ... }:
-{
-  environment.systemPackages = [
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
-}
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 

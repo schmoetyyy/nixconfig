@@ -55,7 +55,7 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("hyprpaper")
    hl.exec_cmd("waybar")
 --   hl.exec_cmd("pkill waybar ; sleep 1 ; waybar")
-   hl.exec_cmd("hyprctl setcursor Qogir-Dark 22")
+   hl.exec_cmd("hyprctl setcursor Qogir-Dark 21")
  end)
 
 
@@ -65,9 +65,9 @@ hl.on("hyprland.start", function ()
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("XCURSOR_SIZE", "20")
+hl.env("XCURSOR_SIZE", "21")
 hl.env("XCURSOR_THEME","Qogir-Dark")
-hl.env("HYPRCURSOR_SIZE", "20")
+hl.env("HYPRCURSOR_SIZE", "21")
 hl.env("HYPRCURSOR_THEME","Qogir-Dark")
 
 -----------------------
