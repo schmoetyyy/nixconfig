@@ -1,7 +1,7 @@
-@define-color bg #11111b;
-@define-color txt #eff1f5;
-@define-color sel #ca9ee6;
-@define-color bg-alt #1e1e2e;
+@define-color bg #282524;
+@define-color txt #fbf1c7;
+@define-color sel #fabd2f;
+@define-color bg-alt #504945;
 
 .notification {
   background: @bg-alt;

@@ -134,7 +134,6 @@ in
      nwg-look
      rofi
      qogir-icon-theme
-     #pcmanfm
      hyprpaper
      pavucontrol
      sddm-astronaut
@@ -155,6 +154,7 @@ in
      networkmanager-l2tp
      networkmanager-strongswan
      gimp
+     vlc
      ];
 
   fonts.packages = with pkgs; [

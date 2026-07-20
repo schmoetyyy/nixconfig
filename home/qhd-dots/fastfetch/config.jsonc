@@ -1,8 +1,8 @@
 // Inspired by Catnap
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-  /*"logo": {
-    "source": "/home/natty/Documents/System_Art/banksyred.txt", // Path to your logo file
+  "logo": {
+    "source": "~/asciiart/banksy.txt", // Path to your logo file
     "type": "auto", // 'auto' detects the best protocol for your terminal
     "width": 12, // Adjust width (in characters)
     "padding": {
@@ -10,7 +10,7 @@
       "right": 4,
       "left": 3,
     },
-  },*/
+  },
   "display": {
     "separator": " ",
   },

@@ -53,6 +53,7 @@ local browser     = "firefox"
 hl.on("hyprland.start", function () 
    hl.exec_cmd("nm-applet")
    hl.exec_cmd("hyprpaper")
+   hl.exec_cmd("pkill waybar ; sleep 1 ; waybar")
    hl.exec_cmd("hyprctl setcursor Qogir-Dark 20")
  end)
 
@@ -97,11 +98,11 @@ hl.config({
         gaps_in  = 3,
         gaps_out = 10,
 
-        border_size = 2,
+        border_size = 3,
 
         col = {
-            active_border   = "#d79921",
-            inactive_border = "#d79921",
+            active_border   = "#fabd2f",
+            inactive_border = "#fabd2f",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps

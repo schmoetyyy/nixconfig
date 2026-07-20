@@ -1,4 +1,5 @@
 {
+  //"position":"bottom",
   "layer": "top",
   "modules-center": ["clock"],
   "modules-left": ["group/worksp"],
@@ -54,7 +55,7 @@
     "format": "{icon}",
     "format-muted": "",
     "format-icons": {
-      "default": ["Audio", "Audio"],
+      "default": ["", ""],
     },
     "scroll-step": 1,
     "ignored-sinks": ["Easy Effects Sink"],
