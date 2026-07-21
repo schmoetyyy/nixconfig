@@ -147,6 +147,8 @@ nix.extraOptions = ''
      seahorse
      yazi
      swaynotificationcenter
+     cliphist
+     wl-clipboard
      sassc
      hyprpicker
      networkmanagerapplet

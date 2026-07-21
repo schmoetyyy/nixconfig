@@ -56,6 +56,7 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("waybar")
 --   hl.exec_cmd("pkill waybar ; sleep 1 ; waybar")
    hl.exec_cmd("hyprctl setcursor Qogir-Dark 21")
+   hl.exec_cmd("wl-paste --watch cliphist store")
  end)
 
 
@@ -280,7 +281,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen("maximized", "toggle"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + C" , hl.dsp.exec_cmd("hyprpicker"))
-
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
