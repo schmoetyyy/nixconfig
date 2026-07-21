@@ -27,10 +27,18 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+#  boot.kernelParams = [ "fsck.mode=force" ];
+#  boot.initrd.checkJournalingFS = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = "snowline"; # Define your hostname.
+
+  fileSystems."/home/schmoetyyy/HDD" = {
+  device = "/dev/disk/by-uuid/110e5c9a-f0da-4e3a-93e9-c6b908822ba7";
+  fsType = "ext4";  # oder ntfs, btrfs, etc. – je nach Dateisystem der HDD
+  options = [ "nofail" "x-systemd.automount"];
+};
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -160,6 +168,7 @@ nix.extraOptions = ''
      vlc
      waybar
      resources
+     wl-crosshair
      ] ++ [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];

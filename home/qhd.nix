@@ -29,6 +29,9 @@
     file.".config/swaync/config.json".source = ./qhd-dots/swaync/config.json;
     file.".config/swaync/style.css".source = ./qhd-dots/swaync/style.css;
 
+    file.".local/share/PrismLauncher/themes/gruvboxTheme/theme.json".source = ./qhd-dots/Prismlauncher/themes/gruvboxTheme/theme.json;
+    file.".local/share/PrismLauncher/themes/gruvboxTheme/themeStyle.css".source = ./qhd-dots/Prismlauncher/themes/gruvboxTheme/themeStyle.css;
+
     file.".vimrc".source = ./qhd-dots/.vimrc;
     file.".bashrc".source = ./qhd-dots/.bashrc;
   };

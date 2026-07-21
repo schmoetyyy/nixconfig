@@ -55,7 +55,6 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("hyprpaper")
    hl.exec_cmd("waybar")
 --   hl.exec_cmd("pkill waybar ; sleep 1 ; waybar")
-   hl.exec_cmd("hyprctl setcursor Qogir-Dark 21")
    hl.exec_cmd("wl-paste --watch cliphist store")
  end)
 
@@ -70,6 +69,9 @@ hl.env("XCURSOR_SIZE", "21")
 hl.env("XCURSOR_THEME","Qogir-Dark")
 hl.env("HYPRCURSOR_SIZE", "21")
 hl.env("HYPRCURSOR_THEME","Qogir-Dark")
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 
 -----------------------
 ----- PERMISSIONS -----

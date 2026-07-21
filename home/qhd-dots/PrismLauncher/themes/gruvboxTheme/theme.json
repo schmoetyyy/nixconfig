@@ -1,0 +1,21 @@
+{
+  "colors": {
+    "AlternateBase": "#fbf1c7",
+    "Base": "#fbf1c7",
+    "BrightText": "#fabd2f",
+    "Button": "#fbf1c7",
+    "ButtonText": "#fabd2f",
+    "Highlight": "#fabd2f",
+    "HighlightedText": "#1d2021",
+    "Link": "#83a598",
+    "Text": "#fabd2f",
+    "ToolTipBase": "#a89984",
+    "ToolTipText": "#1d2021",
+    "Window": "#fbf1c7",
+    "WindowText": "#fabd2f",
+    "fadeAmount": 0.5,
+    "fadeColor": "#000000"
+  },
+  "name": "A Custom Theme <6121>",
+  "widgets": "Fusion"
+}

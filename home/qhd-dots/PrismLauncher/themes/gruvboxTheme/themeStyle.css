@@ -1,0 +1,21 @@
+/* Main view */
+#mainToolBar,
+#instanceToolBar,
+#statusBar,
+#newsToolBar {
+  border: 0;
+}
+/* */
+
+/* Settings view */
+/* */
+
+/* Buttons */
+/* */
+
+/* Toolbar mover */
+QObject::handle {
+  margin: 2px;
+  background-color: rgba(250, 189, 47, 255);
+}
+/* */
