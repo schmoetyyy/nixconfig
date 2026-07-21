@@ -38,7 +38,7 @@ hl.monitor({
 local terminal    = "kitty"
 local fileManager = "kitty -e yazi"
 local menu        = "hyprlauncher"
-local browser     = "firefox"
+local browser     = "zen"
 
 
 -------------------
