@@ -23,7 +23,7 @@ in
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.grub.useOSProber = false;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -84,12 +84,30 @@ in
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-   services.pipewire = {
-     enable = true;
-     pulse.enable = true;
-     alsa.enable = true;
-     alsa.support32Bit = true;
-   };
+  services.pipewire = {
+  enable = true;
+  pulse.enable = true;
+  alsa.enable = true;
+  alsa.support32Bit = true;
+  extraConfig.pipewire."99-echo-cancel" = {
+    "context.modules" = [
+      {
+        name = "libpipewire-module-echo-cancel";
+        args = {
+          "source.props" = {
+            "node.name" = "Echo-Cancelled-Mic";
+            "node.description" = "Echo-Cancelled Microphone";
+          };
+          "sink.props" = {
+            "node.name" = "Echo-Cancel-Sink";
+            "node.description" = "Echo Cancel Sink";
+          };
+        };
+      }
+    ];
+  };
+};
+
    hardware.bluetooth.enable = true;
    services.blueman.enable = true;
 
@@ -169,6 +187,7 @@ nix.extraOptions = ''
      waybar
      resources
      wl-crosshair
+     hyprshot
      ] ++ [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];

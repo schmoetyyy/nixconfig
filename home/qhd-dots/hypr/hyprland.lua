@@ -282,9 +282,13 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen("maximized", "toggle"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+
 hl.bind(mainMod .. " + C" , hl.dsp.exec_cmd("hyprpicker"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
--- Move focus with mainMod + arrow keys
+
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("hyprshot -m output -m DP-3 -o ~/Pictures/screenshots --silent"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m output -m DP-3 -o ~/Pictures/screenshots --silent"))
+
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
