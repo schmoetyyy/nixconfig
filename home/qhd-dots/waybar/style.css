@@ -67,3 +67,8 @@ window#waybar {
 #custom-network.connected {
     color: @text ;
 }
+#custom-power {
+    color: @text;
+    padding: 1px 5px;
+    margin: 0px 5px;
+}

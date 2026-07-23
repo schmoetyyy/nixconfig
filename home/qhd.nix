@@ -19,6 +19,8 @@
     file.".config/fastfetch/config.jsonc".source = ./qhd-dots/fastfetch/config.jsonc;
 
     file.".config/rofi/config.rasi".source = ./qhd-dots/rofi/config.rasi;
+    file.".config/rofi/powermenu.sh".source = ./qhd-dots/rofi/powermenu.sh;
+    file.".config/rofi/shutdown.sh".source = ./qhd-dots/rofi/shutdown.sh;
 
     file.".config/yazi/yazi.toml" .source = ./qhd-dots/yazi/yazi.toml;
     file.".config/yazi/init.lua" .source = ./qhd-dots/yazi/init.lua;
