@@ -24,6 +24,7 @@
     file.".config/yazi/init.lua" .source = ./qhd-dots/yazi/init.lua;
     file.".config/yazi/theme.toml" .source = ./qhd-dots/yazi/theme.toml;
     file.".config/yazi/package.toml" .source = ./qhd-dots/yazi/package.toml;
+    file.".config/yazi/keymap.toml" .source = ./qhd-dots/yazi/keymap.toml;
     file.".config/yazi/plugins/folder-rules.yazi/main.lua" .source = ./qhd-dots/yazi/plugins/folder-rules.yazi/main.lua;
     file.".config/yazi/flavors/gruvbox-light.yazi" .source = ./qhd-dots/yazi/flavors/gruvbox-light.yazi;
     file.".config/swaync/config.json".source = ./qhd-dots/swaync/config.json;

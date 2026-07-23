@@ -85,28 +85,11 @@ in
   # services.printing.enable = true;
 
   services.pipewire = {
-  enable = true;
-  pulse.enable = true;
-  alsa.enable = true;
-  alsa.support32Bit = true;
-  extraConfig.pipewire."99-echo-cancel" = {
-    "context.modules" = [
-      {
-        name = "libpipewire-module-echo-cancel";
-        args = {
-          "source.props" = {
-            "node.name" = "Echo-Cancelled-Mic";
-            "node.description" = "Echo-Cancelled Microphone";
-          };
-          "sink.props" = {
-            "node.name" = "Echo-Cancel-Sink";
-            "node.description" = "Echo Cancel Sink";
-          };
-        };
-      }
-    ];
+   enable = true;
+   pulse.enable = true;
+   alsa.enable = true;
+   alsa.support32Bit = true;
   };
-};
 
    hardware.bluetooth.enable = true;
    services.blueman.enable = true;
@@ -188,6 +171,7 @@ nix.extraOptions = ''
      resources
      wl-crosshair
      hyprshot
+     easyeffects
      ] ++ [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];
