@@ -124,7 +124,12 @@ in
     withUWSM = true;
     xwayland.enable = true;
   };
-  programs.steam.enable = true;
+
+programs.steam = {
+  enable = true;
+  remotePlay.openFirewall = true; # optional
+  dedicatedServer.openFirewall = true; # optional
+};
 
 nix.extraOptions = ''
   !include ~/.security/nixos/github-token.conf
@@ -172,6 +177,7 @@ nix.extraOptions = ''
      wl-crosshair
      hyprshot
      easyeffects
+     heroic
      ] ++ [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];

@@ -15,7 +15,7 @@
   },
   "group/system": {
     "orientation": "horizontal",
-    "modules": ["cpu", "memory"],
+    "modules": ["cpu", "memory","custom/network-vpn"],
   },
   "group/worksp": {
     "orientation": "horizontal",
@@ -44,12 +44,13 @@
   },
   "bluetooth": {
     "format": "󰂯",
-    "format-disabled": " off",
-    "format-connected": " con.",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "exec blueman-manager"
+    "on-click": "exec blueman-manager",
+    "on-click-right": "~/.config/rofi/net/bluetooth.sh"
   },
   "pulseaudio": {
     "format": "{icon}",
@@ -77,5 +78,17 @@
    "format": "⏻",
    "on-click": "~/.config/rofi/powermenu.sh",
    "tooltip": false
+  },
+
+  "custom/network-vpn": {
+   "exec": "/home/schmoetyyy/.config/waybar/scripts/network-vpn.sh",
+   "return-type": "json",
+   "interval": 2,
+   "format": "{icon} {text} ",
+   "format-icons": {
+    "": "󰤨"
+  },
+  "on-click": "nm-connection-editor",
+  "on-click-right": "/home/schmoetyyy/.config/rofi/network.sh"
   }
 }

@@ -72,3 +72,11 @@ window#waybar {
     padding: 1px 5px;
     margin: 0px 5px;
 }
+#custom-network-vpn.vpn-connected {
+  color: #a6e3a1;
+}
+
+#custom-network-vpn.vpn-disconnected {
+  color: #fbf1c7;
+
+}

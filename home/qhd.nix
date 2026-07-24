@@ -13,14 +13,18 @@
 
     file.".config/waybar/config.jsonc".source = ./qhd-dots/waybar/config.jsonc;
     file.".config/waybar/style.css".source = ./qhd-dots/waybar/style.css;
-    file.".config/waybar/scipts/network.sh".source = ./qhd-dots/waybar/scripts/network.sh;
-    file.".config/waybar/scipts/toggle-nmapplet.sh".source = ./qhd-dots/waybar/scripts/toggle-nmapplet.sh;
+    file.".config/waybar/scripts/network-vpn.sh".source = ./qhd-dots/waybar/scripts/network-vpn.sh;
    
     file.".config/fastfetch/config.jsonc".source = ./qhd-dots/fastfetch/config.jsonc;
 
     file.".config/rofi/config.rasi".source = ./qhd-dots/rofi/config.rasi;
     file.".config/rofi/powermenu.sh".source = ./qhd-dots/rofi/powermenu.sh;
     file.".config/rofi/shutdown.sh".source = ./qhd-dots/rofi/shutdown.sh;
+    file.".config/rofi/net/bluetooth.sh".source = ./qhd-dots/rofi/net/bluetooth.sh;
+    file.".config/rofi/net/networking.sh".source = ./qhd-dots/rofi/net/networking.sh;
+    file.".config/rofi/net/vpn.sh".source = ./qhd-dots/rofi/net/vpn.sh;
+    file.".config/rofi/net/wifi.sh".source = ./qhd-dots/rofi/net/wifi.sh;
+    file.".config/rofi/network.sh".source = ./qhd-dots/rofi/network.sh;
 
     file.".config/yazi/yazi.toml" .source = ./qhd-dots/yazi/yazi.toml;
     file.".config/yazi/init.lua" .source = ./qhd-dots/yazi/init.lua;

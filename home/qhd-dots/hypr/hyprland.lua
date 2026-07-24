@@ -289,6 +289,8 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphi
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("hyprshot -m output -m DP-3 -o ~/Pictures/screenshots --silent"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m output -m DP-3 -o ~/Pictures/screenshots --silent"))
 
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("~/.config/rofi/network.sh"))
+
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
