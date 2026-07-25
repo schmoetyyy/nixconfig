@@ -165,11 +165,7 @@ nix.extraOptions = ''
      wl-clipboard
      sassc
      hyprpicker
-     networkmanagerapplet
-     networkmanager_dmenu
      networkmanager-openvpn
-     networkmanager-l2tp
-     networkmanager-strongswan
      gimp
      vlc
      waybar
