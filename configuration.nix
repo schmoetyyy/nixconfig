@@ -176,6 +176,7 @@ nix.extraOptions = ''
      heroic
      gtk3
      gtk-layer-shell
+     networkmanagerapplet
      ] ++ [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];
