@@ -30,6 +30,13 @@ in
 #  boot.kernelParams = [ "fsck.mode=force" ];
 #  boot.initrd.checkJournalingFS = true;
 
+  # IPv6 systemweit deaktivieren
+  boot.kernel.sysctl = {
+    "net.ipv6.conf.all.disable_ipv6" = 1;
+    "net.ipv6.conf.default.disable_ipv6" = 1;
+    "net.ipv6.conf.lo.disable_ipv6" = 1;
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = "snowline"; # Define your hostname.
