@@ -283,7 +283,8 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen("maximized", "toggle"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 
-hl.bind(mainMod .. " + C" , hl.dsp.exec_cmd("hyprpicker"))
+hl.bind(mainMod .. " + SHIFT + C" , hl.dsp.exec_cmd("hyprpicker"))
+hl.bind(mainMod .. " + C" , hl.dsp.exec_cmd("~/nixconfig/home/qhd-dots/crosshairs/toggle-crosshair.sh"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("hyprshot -m output -m DP-3 -o ~/Pictures/screenshots --silent"))

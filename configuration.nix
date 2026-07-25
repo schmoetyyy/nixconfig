@@ -178,6 +178,8 @@ nix.extraOptions = ''
      hyprshot
      easyeffects
      heroic
+     gtk3
+     gtk-layer-shell
      ] ++ [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];

@@ -84,7 +84,7 @@
    "exec": "/home/schmoetyyy/.config/waybar/scripts/network-vpn.sh",
    "return-type": "json",
    "interval": 2,
-   "format": "{icon} {text} ",
+   "format": "{icon} {text}",
    "format-icons": {
     "": "󰤨"
   },
