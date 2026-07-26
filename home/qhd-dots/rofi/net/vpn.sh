@@ -11,7 +11,7 @@ ACTIVE_VPNS=$(nmcli -t -f NAME,TYPE,ACTIVE connection show --active | grep -E ':
 MENU=""
 while IFS= read -r vpn; do
     if echo "$ACTIVE_VPNS" | grep -q "^${vpn}$"; then
-        MENU+="󰤨  ${vpn} (aktiv)\n"
+        MENU+="󰤨  ${vpn} (active)\n"
     else
         MENU+="󰤭  ${vpn}\n"
     fi
@@ -20,7 +20,7 @@ done <<< "$ALL_VPNS"
 # 4. Rofi öffnen und Auswahl speichern
 # sed am Ende entfernt das Icon und "(aktiv)" wieder aus der Auswahl, 
 # damit nmcli den echten Namen bekommt
-SELECTED=$(echo -e "$MENU" | rofi -dmenu -i -p "VPN toggeln:" | sed 's/󰤨  //;s/󰤭  //;s/ (aktiv)//')
+SELECTED=$(echo -e "$MENU" | rofi -dmenu -i -p "toggle VPN:" | sed 's/󰤨  //;s/󰤭  //;s/ (active)//')
 
 # 5. Wenn nichts ausgewählt wurde (Escape), abbrechen
 [ -z "$SELECTED" ] && exit 0
@@ -28,8 +28,8 @@ SELECTED=$(echo -e "$MENU" | rofi -dmenu -i -p "VPN toggeln:" | sed 's/󰤨  //;
 # 6. Prüfen, ob die Auswahl aktiv ist -> toggeln
 if echo "$ACTIVE_VPNS" | grep -q "^${SELECTED}$"; then
     nmcli connection down "$SELECTED"
-    notify-send "VPN" "Getrennt: $SELECTED"
+    notify-send "VPN" "deactivated: $SELECTED"
 else
     nmcli connection up "$SELECTED"
-    notify-send "VPN" "Verbunden mit: $SELECTED"
+    notify-send "VPN" "connected with: $SELECTED"
 fi

@@ -5,19 +5,19 @@ BT_POWER=$(bluetoothctl show | grep "Powered:" | awk '{print $2}')
 MENU=""
 
 if [ "$BT_POWER" = "yes" ]; then
-    MENU+="󰂯  Bluetooth Ausschalten\n"
-    MENU+="󰂃  Blueman öffnen\n"
+    MENU+="󰂯  Deactivate Bluetooth\n"
+    MENU+="󰂃  Open Blueman\n"
 
     # 2. Bekannte (gepaarte) Geräte holen
     KNOWN_DEVS=$(bluetoothctl devices Paired)
     if [ -n "$KNOWN_DEVS" ]; then
-        MENU+="\n--- Bekannte Geräte ---\n"
+        MENU+="\n--- Known Devices ---\n"
         while IFS= read -r line; do
             MAC=$(echo "$line" | awk '{print $2}')
             NAME=$(echo "$line" | cut -d' ' -f3-)
             IS_CONNECTED=$(bluetoothctl info "$MAC" | grep "Connected:" | awk '{print $2}')
             if [ "$IS_CONNECTED" = "yes" ]; then
-                MENU+="󰂱  $NAME (aktiv) |$MAC\n"
+                MENU+="󰂱  $NAME (active) |$MAC\n"
             else
                 MENU+="󰂲  $NAME |$MAC\n"
             fi
@@ -25,7 +25,7 @@ if [ "$BT_POWER" = "yes" ]; then
     fi
 
     # 3. Unbekannte Geräte (Scannen)
-    notify-send "Bluetooth" "Suche nach neuen Geräten in der Umgebung..." -t 3000
+    notify-send "Bluetooth" "Searching for devices in Area..." -t 3000
     # 4 Sekunden scannen
     timeout 4 bluetoothctl scan on > /dev/null 2>&1
     
@@ -42,57 +42,49 @@ if [ "$BT_POWER" = "yes" ]; then
     done <<< "$ALL_DEVS"
 
     if [ -n "$UNKNOWN_MENU" ]; then
-        MENU+="\n--- Unbekannte Geräte ---\n"
+        MENU+="\n--- Unknown Devices ---\n"
         MENU+="$UNKNOWN_MENU"
     fi
-
 else
     # Wenn Bluetooth ausgeschaltet ist
-    MENU+="󰂯  Bluetooth Einschalten\n"
-    MENU+="󰂃  Blueman öffnen\n"
+    MENU+="󰂯  Activate Bluetooth\n"
+    MENU+="󰂃  Open Blueman\n"
 fi
 
 # 4. Rofi öffnen und Auswahl speichern
-# Wir packen die MAC-Adresse unsichtbar hinten dran (hinter dem |), damit das Skript sie nutzen kann
 SELECTED=$(echo -e "$MENU" | rofi -dmenu -i -p "Bluetooth:")
 
 # 5. Wenn nichts ausgewählt wurde (Escape), abbrechen
 [ -z "$SELECTED" ] && exit 0
 
 # 6. Auswertung der Auswahl
-# Icons am Anfang entfernen
 CLEAN_TEXT=$(echo "$SELECTED" | sed 's/󰂯  //;s/󰂃  //;s/󰂱  //;s/󰂲  //')
-# Text und MAC-Adresse trennen (MAC steht nach dem | )
-TEXT=$(echo "$CLEAN_TEXT" | sed 's/ |.*//' | sed 's/ (aktiv)//')
+TEXT=$(echo "$CLEAN_TEXT" | sed 's/ |.*//' | sed 's/ (active)//')
 MAC=$(echo "$CLEAN_TEXT" | grep -o '|.*' | tr -d '| ')
 
 # 7. Aktion ausführen
-if [ "$TEXT" = "Bluetooth Ausschalten" ]; then
+if [ "$TEXT" = "Deactivate Bluetooth" ]; then
     bluetoothctl power off
-    notify-send "Bluetooth" "Ausgeschaltet"
-elif [ "$TEXT" = "Bluetooth Einschalten" ]; then
+    notify-send "Bluetooth" "deactivated"
+elif [ "$TEXT" = "Activate Bluetooth" ]; then
     bluetoothctl power on
-    notify-send "Bluetooth" "Eingeschaltet"
-elif [ "$TEXT" = "Blueman öffnen" ]; then
+    notify-send "Bluetooth" "enabled"
+elif [ "$TEXT" = "Open Blueman" ]; then
     blueman-manager &
 elif [ -n "$MAC" ]; then
-    # Es ist ein Gerät (wir haben die MAC-Adresse)
     IS_PAIRED=$(bluetoothctl info "$MAC" | grep "Paired:" | awk '{print $2}')
     IS_CONNECTED=$(bluetoothctl info "$MAC" | grep "Connected:" | awk '{print $2}')
 
     if [ "$IS_PAIRED" = "no" ]; then
-        # Unbekanntes Gerät: Koppeln und verbinden
-        notify-send "Bluetooth" "Kopple $TEXT..."
+        notify-send "Bluetooth" "pairing $TEXT..."
         bluetoothctl pair "$MAC"
         bluetoothctl trust "$MAC"
         bluetoothctl connect "$MAC"
     elif [ "$IS_CONNECTED" = "yes" ]; then
-        # Bekanntes Gerät, aktiv -> Trennen
-        notify-send "Bluetooth" "Trenne $TEXT..."
+        notify-send "Bluetooth" "disconnecting $TEXT..."
         bluetoothctl disconnect "$MAC"
     else
-        # Bekanntes Gerät, inaktiv -> Verbinden
-        notify-send "Bluetooth" "Verbinde $TEXT..."
+        notify-send "Bluetooth" "connecting $TEXT..."
         bluetoothctl connect "$MAC"
     fi
 fi
