@@ -12,6 +12,12 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    # NEU: Spicetify-Input hinzugefügt
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -29,6 +35,7 @@
             useUserPackages = true;
             users.schmoetyyy = import ./home/qhd.nix;
             backupFileExtension = "backup";
+            extraSpecialArgs = { inherit inputs; };
           };
         }
       ];

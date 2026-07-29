@@ -26,7 +26,7 @@ in
   boot.loader.grub.useOSProber = false;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 #  boot.kernelParams = [ "fsck.mode=force" ];
 #  boot.initrd.checkJournalingFS = true;
 
@@ -35,6 +35,9 @@ in
     "net.ipv6.conf.all.disable_ipv6" = 1;
     "net.ipv6.conf.default.disable_ipv6" = 1;
     "net.ipv6.conf.lo.disable_ipv6" = 1;
+    "vm.vfs_cache_pressure" = 50;
+    "vm.swappiness" = 10;
+    "vm.max_map_count" = 2147483647;
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -138,6 +141,8 @@ programs.steam = {
   dedicatedServer.openFirewall = true; # optional
 };
 
+programs.gamemode.enable = true;
+
 nix.extraOptions = ''
   !include ~/.security/nixos/github-token.conf
 '';
@@ -184,6 +189,8 @@ nix.extraOptions = ''
      gtk3
      gtk-layer-shell
      networkmanagerapplet
+     gamemode
+     gamescope
      ] ++ [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];
@@ -195,11 +202,21 @@ nix.extraOptions = ''
   ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];
+  hardware.cpu.amd.updateMicrocode = true;
+  #powerManagement.cpuFreqGovernor = "powersave";
 
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
     };
+      environment.sessionVariables = {
+    # Erlaubt Vulkan, mehr VRAM zu belegen (sehr wichtig für ARK)
+   # RADV_FORCE_VULKAN_ICD = "radv";
+    # Bessere Performance bei einigen UE5-Spielen
+    PROTON_ENABLE_NVAPI = "1";
+    # Verhindert, dass Steam-Hardware-Beschleunigung streikt
+    STEAM_ENABLE_COMPAT_TOOL = "1";
+  };
   
 
   # Some programs need SUID wrappers, can be configured further or are

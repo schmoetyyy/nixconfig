@@ -283,7 +283,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen("maximized", "toggle"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 
-hl.bind(mainMod .. " + SHIFT + C" , hl.dsp.exec_cmd("hyprpicker"))
+hl.bind(mainMod .. " + SHIFT + C" , hl.dsp.exec_cmd("hyprpicker --autocopy"))
 hl.bind(mainMod .. " + C" , hl.dsp.exec_cmd("~/nixconfig/home/qhd-dots/crosshairs/toggle-crosshair.sh"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 
@@ -380,4 +380,18 @@ hl.window_rule({
 
     move  = "20 monitor_h-120",
     float = true,
+})
+hl.window_rule({
+  name = "meinprogramm-perf",
+  match = { class = "steam_app_2399830" },
+  no_blur    = true,
+  opacity    = "1.0 override 1.0 override",
+  no_shadow  = true,
+  no_anim    = true,
+  immediate  = true,
+})
+hl.config({
+  general = {
+    allow_tearing = true
+  }
 })

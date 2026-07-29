@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+# inputs wurde hinzugefügt!
+{ config, pkgs, inputs, ... }:
 
 {
   home = {
@@ -26,20 +27,47 @@
     file.".config/rofi/net/wifi.sh".source = ./qhd-dots/rofi/net/wifi.sh;
     file.".config/rofi/network.sh".source = ./qhd-dots/rofi/network.sh;
 
-    file.".config/yazi/yazi.toml" .source = ./qhd-dots/yazi/yazi.toml;
-    file.".config/yazi/init.lua" .source = ./qhd-dots/yazi/init.lua;
-    file.".config/yazi/theme.toml" .source = ./qhd-dots/yazi/theme.toml;
-    file.".config/yazi/package.toml" .source = ./qhd-dots/yazi/package.toml;
-    file.".config/yazi/keymap.toml" .source = ./qhd-dots/yazi/keymap.toml;
-    file.".config/yazi/plugins/folder-rules.yazi/main.lua" .source = ./qhd-dots/yazi/plugins/folder-rules.yazi/main.lua;
-    file.".config/yazi/flavors/gruvbox-light.yazi" .source = ./qhd-dots/yazi/flavors/gruvbox-light.yazi;
+    # Hier wurden die Leerzeichen vor .source entfernt
+    file.".config/yazi/yazi.toml".source = ./qhd-dots/yazi/yazi.toml;
+    file.".config/yazi/init.lua".source = ./qhd-dots/yazi/init.lua;
+    file.".config/yazi/theme.toml".source = ./qhd-dots/yazi/theme.toml;
+    file.".config/yazi/package.toml".source = ./qhd-dots/yazi/package.toml;
+    file.".config/yazi/keymap.toml".source = ./qhd-dots/yazi/keymap.toml;
+    file.".config/yazi/plugins/folder-rules.yazi/main.lua".source = ./qhd-dots/yazi/plugins/folder-rules.yazi/main.lua;
+    file.".config/yazi/flavors/gruvbox-light.yazi".source = ./qhd-dots/yazi/flavors/gruvbox-light.yazi;
+    
     file.".config/swaync/config.json".source = ./qhd-dots/swaync/config.json;
     file.".config/swaync/style.css".source = ./qhd-dots/swaync/style.css;
 
     file.".local/share/PrismLauncher/themes/gruvboxTheme/theme.json".source = ./qhd-dots/PrismLauncher/themes/gruvboxTheme/theme.json;
     file.".local/share/PrismLauncher/themes/gruvboxTheme/themeStyle.css".source = ./qhd-dots/PrismLauncher/themes/gruvboxTheme/themeStyle.css;
 
+    file.".config/zed/settings.json".source = ./qhd-dots/zed/settings.json;
+
     file.".vimrc".source = ./qhd-dots/.vimrc;
     file.".bashrc".source = ./qhd-dots/.bashrc;
   };
+  # 1. Das Modul importieren
+  imports = [
+    inputs.spicetify-nix.homeManagerModules.default
+  ];
+
+  # 2. Spicetify konfigurieren
+  programs.spicetify =
+    let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+    in
+    {
+      enable = true;
+
+      # Catppuccin ist in der Liste vorhanden
+      theme = spicePkgs.themes.catppuccin;
+      # "latte" ist das helle Farbschema von Catppuccin
+      colorScheme = "latte";
+
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        shuffle
+      ];
+    };
 }
