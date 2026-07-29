@@ -191,7 +191,6 @@ nix.extraOptions = ''
      networkmanagerapplet
      gamemode
      gamescope
-     lunar-client
      ] ++ [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];
