@@ -15,7 +15,7 @@ case "$chosen" in
         systemctl suspend
         ;;
     "⏏  Logout")
-        hyprctl dispatch exit
+        command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl     dispatch 'hl.dsp.exit()'
         ;;
     "󰔟  Time Shutdown")
         ~/.config/rofi/shutdown.sh

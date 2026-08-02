@@ -37,7 +37,7 @@ in
     "net.ipv6.conf.lo.disable_ipv6" = 1;
     "vm.vfs_cache_pressure" = 50;
     "vm.swappiness" = 10;
-    "vm.max_map_count" = 2147483647;
+  #  "vm.max_map_count" = 2147483647;
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -120,7 +120,6 @@ in
   services.displayManager.sddm = {
     enable = true;
     package = pkgs.kdePackages.sddm; 
-    wayland.enable = true;
     extraPackages = [ sddm-astronaut ];
     theme = "sddm-astronaut-theme";
   };
@@ -153,12 +152,9 @@ nix.extraOptions = ''
      kitty
      fastfetch
      zed-editor
-     tree
      git
      zip
      unzip
-     xdg-user-dirs
-     nwg-look
      rofi
      qogir-icon-theme
      hyprpaper
@@ -175,9 +171,7 @@ nix.extraOptions = ''
      swaynotificationcenter
      cliphist
      wl-clipboard
-     sassc
      hyprpicker
-     networkmanager-openvpn
      gimp
      vlc
      waybar
@@ -186,8 +180,6 @@ nix.extraOptions = ''
      hyprshot
      easyeffects
      heroic
-     gtk3
-     gtk-layer-shell
      networkmanagerapplet
      gamemode
      gamescope
@@ -203,7 +195,7 @@ nix.extraOptions = ''
 
   services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.cpu.amd.updateMicrocode = true;
-  #powerManagement.cpuFreqGovernor = "powersave";
+  powerManagement.cpuFreqGovernor = "performance";
 
     hardware.graphics = {
       enable = true;

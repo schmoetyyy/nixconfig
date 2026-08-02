@@ -388,10 +388,4 @@ hl.window_rule({
   opacity    = "1.0 override 1.0 override",
   no_shadow  = true,
   no_anim    = true,
-  immediate  = true,
-})
-hl.config({
-  general = {
-    allow_tearing = true
-  }
 })
