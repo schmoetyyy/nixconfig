@@ -142,6 +142,9 @@ programs.steam = {
 
 programs.gamemode.enable = true;
 
+programs.gpu-screen-recorder.enable = true;
+
+
 nix.extraOptions = ''
   !include ~/.security/nixos/github-token.conf
 '';
@@ -183,6 +186,9 @@ nix.extraOptions = ''
      networkmanagerapplet
      gamemode
      gamescope
+     gpu-screen-recorder-gtk
+     libnotify
+     ffmpeg
      ] ++ [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];
@@ -196,6 +202,8 @@ nix.extraOptions = ''
   services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.cpu.amd.updateMicrocode = true;
   powerManagement.cpuFreqGovernor = "performance";
+  hardware.opengl.enable = true;
+  hardware.graphics.extraPackages = [ pkgs.libva-vdpau-driver ];
 
     hardware.graphics = {
       enable = true;

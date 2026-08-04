@@ -54,6 +54,7 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("nm-applet")
    hl.exec_cmd("hyprpaper")
    hl.exec_cmd("waybar")
+   hl.exec_cmd("gpu-screen-recorder -w screen -f 60 -a default_output -r 300 -c mp4 -o ~/Videos/Replays -df yes >> ~/.cache/gsr-replay.log 2>&1")
 --   hl.exec_cmd("pkill waybar ; sleep 1 ; waybar")
    hl.exec_cmd("wl-paste --watch cliphist store")
  end)
@@ -297,7 +298,6 @@ hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
--- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
@@ -331,6 +331,13 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
+
+-- Clipping and Recording
+hl.bind("SUPER + F9", hl.dsp.exec_cmd("~/nixconfig/home/qhd-dots/gpu-screen-recorder/gsr-toggle-record.sh"))
+hl.bind("F5", hl.dsp.exec_cmd("~/nixconfig/home/qhd-dots/gpu-screen-recorder/gsr-clip.sh 15"))
+hl.bind("F6", hl.dsp.exec_cmd("~/nixconfig/home/qhd-dots/gpu-screen-recorder/gsr-clip.sh 30"))
+hl.bind("F7", hl.dsp.exec_cmd("~/nixconfig/home/qhd-dots/gpu-screen-recorder/gsr-clip.sh 60"))
+hl.bind("F8", hl.dsp.exec_cmd("~/nixconfig/home/qhd-dots/gpu-screen-recorder/gsr-clip.sh full"))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
