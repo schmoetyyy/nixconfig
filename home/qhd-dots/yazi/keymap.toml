@@ -131,6 +131,7 @@ keymap = [
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
 	{ on = [ "g", "n" ],       run = "cd ~/nixconfig",   desc = "Go ~/nixconfig" },
+	{ on = [ "g", "v" ],       run = "cd ~/Videos",   desc = "Go ~/Videos" },
 	{ on = [ "g", "p" ],       run = "cd ~/Pictures",   desc = "Go ~/Pictures" },
 
 	# Tabs

@@ -283,6 +283,7 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen("maximized", "toggle"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("~/nixconfig/home/qhd-dots/hypr/scripts/toggle-sunset.sh"))
 
 hl.bind(mainMod .. " + SHIFT + C" , hl.dsp.exec_cmd("hyprpicker --autocopy"))
 hl.bind(mainMod .. " + C" , hl.dsp.exec_cmd("~/nixconfig/home/qhd-dots/crosshairs/toggle-crosshair.sh"))

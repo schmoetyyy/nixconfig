@@ -175,6 +175,7 @@ nix.extraOptions = ''
      cliphist
      wl-clipboard
      hyprpicker
+     hyprsunset
      gimp
      vlc
      waybar

@@ -7,6 +7,7 @@ alias snow="shutdown now"
 alias rewayb="pkill waybar ; sleep 1 ; waybar & disown"
 alias cr='cd ~/.local/share/waylandcrosshair && ./crosshair 0.99 & disown'
 alias ki='pkill crosshair'
+alias clram='sync; echo 3 | sudo tee /proc/sys/vm/drop_caches'
 PS1='\[\033[0;36m\]\w #\[\e[0m\] '
 fastfetch 
             
