@@ -9,16 +9,16 @@ case "$chosen" in
         bash -c '[ "$(nmcli networking)" = "enabled" ] && nmcli networking off || nmcli networking on'
         ;;
     "󰌗  Networking")
-        ~/.config/rofi/net/networking.sh
+        ~/nixconfig/home/qhd-dots/rofi/net/networking.sh
         ;;
     "  Wifi")
-        ~/.config/rofi/net/wifi.sh
+        ~/nixconfig/home/qhd-dots/rofi/net/wifi.sh
         ;;
     "󰂯  Bluetooth")
-        ~/.config/rofi/net/bluetooth.sh
+        ~/nixconfig/home/qhd-dots/rofi/net/bluetooth.sh
         ;;
     "  Vpn")
-        ~/.config/rofi/net/vpn.sh
+        ~/nixconfig/home/qhd-dots/rofi/net/vpn.sh
         ;;
     "  Network Manager")
         nm-connection-editor

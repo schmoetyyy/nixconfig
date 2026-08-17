@@ -52,7 +52,13 @@ in
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
-
+  networking.networkmanager.settings = {
+    connectivity = {
+        uri = "https://nmcheck.gnome.org/check_network_status.txt";
+        interval = "300";
+      };
+  };
+  
   nixpkgs.config.allowUnfree = true;
 
   # Set your time zone.
@@ -126,7 +132,7 @@ in
   services.gnome.gnome-keyring.enable = true; 
   security.pam.services.sddm.enableGnomeKeyring = true;
 
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
   programs.localsend.enable = true;
   programs.hyprland = {
     enable = true;
@@ -190,6 +196,7 @@ nix.extraOptions = ''
      gpu-screen-recorder-gtk
      libnotify
      ffmpeg
+     tor-browser
      ] ++ [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
      ];

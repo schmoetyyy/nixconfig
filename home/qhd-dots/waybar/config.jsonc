@@ -50,7 +50,7 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "on-click": "exec blueman-manager",
-    "on-click-right": "~/.config/rofi/net/bluetooth.sh"
+    "on-click-right": "~/.nixconfig/home/qhd-dots/rofi/net/bluetooth.sh"
   },
   "pulseaudio": {
     "format": "{icon}",
@@ -76,12 +76,12 @@
   },
   "custom/power":{
    "format": "⏻",
-   "on-click": "~/.config/rofi/powermenu.sh",
+   "on-click": "~/nixconfig/home/qhd-dots/rofi/powermenu.sh",
    "tooltip": false
   },
 
   "custom/network-vpn": {
-   "exec": "/home/schmoetyyy/.config/waybar/scripts/network-vpn.sh",
+   "exec": "~/nixconfig/home/qhd-dots/waybar/scripts/network-vpn.sh",
    "return-type": "json",
    "interval": 2,
    "format": "{icon} {text}",
@@ -89,6 +89,6 @@
     "": "󰤨"
   },
   "on-click": "nm-connection-editor",
-  "on-click-right": "/home/schmoetyyy/.config/rofi/network.sh"
+  "on-click-right": "~/nixconfig/home/qhd-dots/rofi/network.sh"
   }
 }

@@ -18,5 +18,5 @@ case "$chosen" in
         command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl     dispatch 'hl.dsp.exit()'
         ;;
     "󰔟  Time Shutdown")
-        ~/.config/rofi/shutdown.sh
+        ~/nixconfig/home/qhd-dots/rofi/shutdown.sh
 esac

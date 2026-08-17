@@ -7,7 +7,7 @@
     homeDirectory = "/home/schmoetyyy";
     stateVersion = "26.05";
 
-    file.".config/kitty/kitty.conf".source = ./qhd-dots/kitty/kitty.conf;
+/*    file.".config/kitty/kitty.conf".source = ./qhd-dots/kitty/kitty.conf;
 
     file.".config/hypr/hyprland.lua".source = ./qhd-dots/hypr/hyprland.lua;
     file.".config/hypr/hyprpaper.conf".source = ./qhd-dots/hypr/hyprpaper.conf;
@@ -45,8 +45,8 @@
     file.".config/zed/settings.json".source = ./qhd-dots/zed/settings.json;
 
     file.".vimrc".source = ./qhd-dots/.vimrc;
-    file.".bashrc".source = ./qhd-dots/.bashrc;
-  };
+    file.".bashrc".source = ./qhd-dots/.bashrc;  */
+  }; 
   # 1. Das Modul importieren
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
