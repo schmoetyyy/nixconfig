@@ -13,7 +13,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    # NEU: Spicetify-Input hinzugefügt
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
